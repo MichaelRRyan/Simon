@@ -19,6 +19,7 @@ Game::Game() :
 	m_yellowButton{ sf::Vector2f{ 200.0f, 200.0f } }
 {
 	setupButtons();
+	setupFontAndText();
 }
 
 
@@ -51,6 +52,25 @@ void Game::setupButtons()
 	// Setup blue
 	m_blueButton.setFillColor(BLUE);
 	m_blueButton.setPosition(sf::Vector2f{ 570.0f, 250.0f });
+}
+
+/// <summary>
+/// Setup the font and text used in the game
+/// </summary>
+void Game::setupFontAndText()
+{
+	// Load font file
+	if (m_impactFont.loadFromFile("assets/fonts/impact.ttf"))
+	{
+		std::cout << "Font loaded successfully" << std::endl;
+	}
+
+	// Setup the text object
+	m_titleText.setFont(m_impactFont);
+	m_titleText.setFillColor(WHITE);
+	m_titleText.setCharacterSize(64);
+	m_titleText.setPosition(50.0f, 30.0f);
+	m_titleText.setString("S Z Y M O N");
 }
 
 void Game::run()
@@ -119,6 +139,9 @@ void Game::render()
 	m_window.draw(m_redButton);
 	m_window.draw(m_yellowButton);
 	m_window.draw(m_blueButton);
+
+	// Draw the text
+	m_window.draw(m_titleText);
 
 	m_window.display();
 }

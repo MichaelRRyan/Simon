@@ -22,6 +22,7 @@ private:
 	void render();
 	
 	void setupButtons(); // Setup all button properties
+	void setupFontAndText(); // Load font files and setup text
 
 	// Setup the colours for the buttons
 	const sf::Color RED{ 255, 85, 85, 255 };
@@ -32,7 +33,10 @@ private:
 
 
 	sf::RenderWindow m_window; // main SFML window
+
 	sf::Font m_ArialBlackfont; // font used by message
+	sf::Font m_impactFont; // Main font used for the game
+	sf::Text m_titleText; // Text object for the title
 	
 	bool m_exitGame; // control exiting game
 
