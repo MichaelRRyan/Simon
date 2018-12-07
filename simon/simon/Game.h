@@ -5,6 +5,17 @@
 
 #include <SFML/Graphics.hpp>
 
+/// <summary>
+/// The four game modes
+/// </summary>
+enum class GameMode
+{
+	Showing,
+	Recieving,
+	GameOver,
+	Starting
+};
+
 class Game
 {
 public:
@@ -52,6 +63,8 @@ private:
 	sf::RectangleShape m_greenButton; // Big oul' green button in the game
 	sf::RectangleShape m_blueButton; // Big oul' blue button in the game
 	sf::RectangleShape m_yellowButton; // Big oul' yellow button in the game
+
+	GameMode m_currentGameMode; // The current game mode
 };
 
 #endif // !GAME

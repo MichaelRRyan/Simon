@@ -1,7 +1,7 @@
 // @Author Michael Rainsford Ryan
 // @Date 07/12/2018
 // Estimated time: 180m
-// Session 1: 09:45 - 10:01 - 07/12/2018
+// Session 1: 09:45 - 10:53 - 07/12/2018
 
 #include "Game.h"
 #include <iostream>
@@ -16,7 +16,10 @@ Game::Game() :
 	m_redButton{ sf::Vector2f{ 200.0f, 200.0f } },
 	m_greenButton{ sf::Vector2f{ 200.0f, 200.0f } },
 	m_blueButton{ sf::Vector2f{ 200.0f, 200.0f } },
-	m_yellowButton{ sf::Vector2f{ 200.0f, 200.0f } }
+	m_yellowButton{ sf::Vector2f{ 200.0f, 200.0f } },
+	
+	// Initiate the game state
+	m_currentGameMode{ GameMode::Starting }
 {
 	setupButtons();
 	setupFontAndText();
@@ -105,7 +108,7 @@ void Game::setupFontAndText()
 	m_statusText.setFillColor(WHITE);
 	m_statusText.setCharacterSize(22);
 	m_statusText.setPosition(500.0f, 453.0f);
-	m_statusText.setString("Test"); // No status on the menu screen
+	m_statusText.setString(""); // No status on the menu screen
 }
 
 void Game::run()
@@ -178,10 +181,13 @@ void Game::render()
 	// Draw the text
 	m_window.draw(m_titleText);
 
-	m_window.draw(m_instructionsTextBlue);
-	m_window.draw(m_instructionsTextGreen);
-	m_window.draw(m_instructionsTextRed);
-	m_window.draw(m_instructionsTextYellow);
+	if (GameMode::Starting == m_currentGameMode) // Draw the instruction text if on the title screen
+	{
+		m_window.draw(m_instructionsTextBlue);
+		m_window.draw(m_instructionsTextGreen);
+		m_window.draw(m_instructionsTextRed);
+		m_window.draw(m_instructionsTextYellow);
+	}
 
 	m_window.draw(m_statusText);
 
