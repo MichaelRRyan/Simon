@@ -65,6 +65,11 @@ private:
 	sf::RectangleShape m_yellowButton; // Big oul' yellow button in the game
 
 	GameMode m_currentGameMode; // The current game mode
+
+	bool m_redButtonPressed; // Red button pressed
+	bool m_blueButtonPressed; // blue button pressed
+	bool m_yellowButtonPressed; // yellow button pressed
+	bool m_greenButtonPressed; // green button pressed
 };
 
 #endif // !GAME

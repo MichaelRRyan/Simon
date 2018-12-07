@@ -1,7 +1,7 @@
 // @Author Michael Rainsford Ryan
 // @Date 07/12/2018
 // Estimated time: 180m
-// Session 1: 09:45 - 10:53 - 07/12/2018
+// Session 1: 09:45 - 11:03 - 07/12/2018
 
 #include "Game.h"
 #include <iostream>
@@ -136,6 +136,15 @@ void Game::run()
 /// </summary>
 void Game::processEvents()
 {
+	const int COL_1_LEFT = 350;
+	const int COL_1_RIGHT = 550;
+	const int COL_2_LEFT = 570;
+	const int COL_2_RIGHT = 770;
+	const int ROW_1_TOP = 20;
+	const int ROW_1_BOTTOM = 230;
+	const int ROW_2_TOP = 250;
+	const int ROW_2_BOTTOM = 450;
+
 	sf::Event event;
 	while (m_window.pollEvent(event))
 	{
@@ -148,6 +157,15 @@ void Game::processEvents()
 			if (sf::Keyboard::Escape == event.key.code)
 			{
 				m_exitGame = true;
+			}
+		}
+		// Check if the event is a mouse button release
+		if (sf::Event::MouseButtonReleased == event.type)
+		{
+			// Check if it's on the first column
+			if (event.mouseButton.y > ROW_1_TOP && event.mouseButton.y < ROW_1_BOTTOM)
+			{
+
 			}
 		}
 	}
