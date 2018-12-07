@@ -1,8 +1,7 @@
 /// <summary>
 /// simple game loop for SFML[2.4.2]
-/// 
-/// @author Peter Lowe
-/// @date May 21017
+/// @Author Michael Rainsford Ryan
+/// @Date 07/12/2018
 /// </summary>
 
 #ifdef _DEBUG 
