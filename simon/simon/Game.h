@@ -33,10 +33,18 @@ private:
 
 
 	sf::RenderWindow m_window; // main SFML window
-
+	
+	// Setup the font
 	sf::Font m_ArialBlackfont; // font used by message
 	sf::Font m_impactFont; // Main font used for the game
+
+	// Setup the text
 	sf::Text m_titleText; // Text object for the title
+	sf::Text m_instructionsTextBlue; // Text for blue instructions
+	sf::Text m_instructionsTextRed; // Text for red instructions
+	sf::Text m_instructionsTextGreen; // Text for green instructions
+	sf::Text m_instructionsTextYellow; // Text for yellow instructions
+	sf::Text m_statusText; // Text for the game status
 	
 	bool m_exitGame; // control exiting game
 

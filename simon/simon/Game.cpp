@@ -71,6 +71,41 @@ void Game::setupFontAndText()
 	m_titleText.setCharacterSize(64);
 	m_titleText.setPosition(50.0f, 30.0f);
 	m_titleText.setString("S Z Y M O N");
+
+	// Setup green message - easy game - 8
+	m_instructionsTextGreen.setFont(m_impactFont);
+	m_instructionsTextGreen.setFillColor(GREEN);
+	m_instructionsTextGreen.setCharacterSize(32);
+	m_instructionsTextGreen.setPosition(50.0f, 100.0f);
+	m_instructionsTextGreen.setString("Press green for \n an easy game");
+
+	// Setup red message - medium game - 16
+	m_instructionsTextRed.setFont(m_impactFont);
+	m_instructionsTextRed.setFillColor(RED);
+	m_instructionsTextRed.setCharacterSize(32);
+	m_instructionsTextRed.setPosition(50.0f, 200.0f);
+	m_instructionsTextRed.setString("Press red for \n a medium game");
+
+	// Setup yellow message - hard game - 32
+	m_instructionsTextYellow.setFont(m_impactFont);
+	m_instructionsTextYellow.setFillColor(YELLOW);
+	m_instructionsTextYellow.setCharacterSize(32);
+	m_instructionsTextYellow.setPosition(50.0f, 300.0f);
+	m_instructionsTextYellow.setString("Press yellow for \n a hard game");
+
+	// Setup blue message - exit game
+	m_instructionsTextBlue.setFont(m_impactFont);
+	m_instructionsTextBlue.setFillColor(BLUE);
+	m_instructionsTextBlue.setCharacterSize(32);
+	m_instructionsTextBlue.setPosition(50.0f, 400.0f);
+	m_instructionsTextBlue.setString("Press blue for \n exit game");
+
+	// Setup status text
+	m_statusText.setFont(m_impactFont);
+	m_statusText.setFillColor(WHITE);
+	m_statusText.setCharacterSize(22);
+	m_statusText.setPosition(500.0f, 453.0f);
+	m_statusText.setString("Test"); // No status on the menu screen
 }
 
 void Game::run()
@@ -142,6 +177,13 @@ void Game::render()
 
 	// Draw the text
 	m_window.draw(m_titleText);
+
+	m_window.draw(m_instructionsTextBlue);
+	m_window.draw(m_instructionsTextGreen);
+	m_window.draw(m_instructionsTextRed);
+	m_window.draw(m_instructionsTextYellow);
+
+	m_window.draw(m_statusText);
 
 	m_window.display();
 }
