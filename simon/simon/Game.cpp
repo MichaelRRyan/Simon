@@ -163,9 +163,30 @@ void Game::processEvents()
 		if (sf::Event::MouseButtonReleased == event.type)
 		{
 			// Check if it's on the first column
-			if (event.mouseButton.y > ROW_1_TOP && event.mouseButton.y < ROW_1_BOTTOM)
+			if (event.mouseButton.x > COL_1_LEFT && event.mouseButton.x < COL_1_RIGHT)
 			{
-
+				// Check which row
+				if (event.mouseButton.y > ROW_1_TOP && event.mouseButton.y < ROW_1_BOTTOM)
+				{
+					m_greenButtonPressed = true;
+				}
+				if (event.mouseButton.y > ROW_2_TOP && event.mouseButton.y < ROW_2_BOTTOM)
+				{
+					m_yellowButtonPressed = true;
+				}
+			}
+			// Check if it's on the second column
+			if (event.mouseButton.x > COL_2_LEFT && event.mouseButton.x < COL_2_RIGHT)
+			{
+				// Check which row
+				if (event.mouseButton.y > ROW_1_TOP && event.mouseButton.y < ROW_1_BOTTOM)
+				{
+					m_redButtonPressed = true;
+				}
+				if (event.mouseButton.y > ROW_2_TOP && event.mouseButton.y < ROW_2_BOTTOM)
+				{
+					m_blueButtonPressed = true;
+				}
 			}
 		}
 	}
@@ -180,6 +201,20 @@ void Game::update(sf::Time t_deltaTime)
 	if (m_exitGame)
 	{
 		m_window.close();
+	}
+
+	switch (m_currentGameMode)
+	{
+	case GameMode::Showing:
+		break;
+	case GameMode::Recieving:
+		break;
+	case GameMode::GameOver:
+		break;
+	case GameMode::Starting:
+		break;
+	default:
+		break;
 	}
 }
 
